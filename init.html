@@ -1,0 +1,64 @@
+<style type="text/css">
+    #drawsocket {
+        top: 0px;
+    }
+
+    #border {
+        fill: #ddffff;
+        fill-opacity: 0.2;
+        stroke: none;
+    }
+
+    .arm {
+        stroke-width: 2px;
+        opacity: 0.5;
+        transition: opacity 1s;
+    }
+    .arm:hover {
+        opacity: 1;
+    }
+
+    .splash:hover, .arrow>polygon:hover {
+        stroke-width: 3px;
+    }
+    .splash>circle:active,.arrow>polygon:active {
+        stroke-width: 5px;
+        transition: none;
+    }
+    .splash>circle,.arrow>polygon {
+        stroke: currentColor;
+        fill: currentColor;
+        fill-opacity: 0.3;
+        transition: stroke-width 1s;
+    }
+    .splash>circle {
+        color: Orange;
+    }
+    .arrow>polygon {
+        color: lightskyblue;
+    }
+
+    .selectbox {
+        opacity: 0;
+    }
+</style>
+
+<script>
+    function sendToController(obj) {
+        drawsocket.sendRoomMessage({
+            controller: {
+                key: 'maxOutput',
+                val: obj
+            }
+        })
+    }
+
+    function init() {
+        window.addEventListener("beforeunload", () => {
+            sendToController({addParticipant: -1});
+        });
+    }
+
+    sendToController({addParticipant: 1});
+    init();
+</script>
