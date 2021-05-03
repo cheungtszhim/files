@@ -18,14 +18,14 @@
         opacity: 1;
     }
 
-    .splash:hover, .arrow>polygon:hover {
+    .splash:hover, [class|="arrow"]>polygon:hover {
         stroke-width: 3px;
     }
-    .splash>circle:active,.arrow>polygon:active {
+    .splash>circle:active,[class|="arrow"]>polygon:active {
         stroke-width: 5px;
         transition: none;
     }
-    .splash>circle,.arrow>polygon {
+    .splash>circle,[class|="arrow"]>polygon {
         stroke: currentColor;
         fill: currentColor;
         fill-opacity: 0.3;
@@ -34,7 +34,7 @@
     .splash>circle {
         color: Orange;
     }
-    .arrow>polygon {
+    [class|="arrow"]>polygon {
         color: lightskyblue;
     }
 
@@ -44,7 +44,57 @@
 </style>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="overflow: visible;">
-    <rect x="100" y="100" width="20" height="20"></rect>
+    <rect id="border" x="0" y="0" width="300" height="400"></rect>
+    <g id="main_controller">
+        <g id="arm-1" class="arm" transform="translate(150, 50)">
+            <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
+            <g class="arrow-left">
+                <polygon points="-30,10 -30,-10 -80,-10 -80,-20 -100,0 -80,20 -80,10" onclick="sendToController({arm:1,button:'left'});" />
+            </g>
+            <g class="arrow-right">
+                <polygon points="30,10 30,-10 80,-10 80,-20 100,0 80,20 80,10" onclick="sendToController({arm:1,button:'right'});" />
+            </g>
+            <g class="splash">
+                <circle cx="0" cy="0" r="20" onclick="sendToController({arm:1,button:'splash'});" />
+            </g>
+        </g>
+        <g id="arm-2" class="arm" transform="translate(150, 150)">
+            <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
+            <g class="arrow-left">
+                <polygon points="-30,10 -30,-10 -80,-10 -80,-20 -100,0 -80,20 -80,10" onclick="sendToController({arm:2,button:'left'});" />
+            </g>
+            <g class="arrow-right">
+                <polygon points="30,10 30,-10 80,-10 80,-20 100,0 80,20 80,10" onclick="sendToController({arm:2,button:'right'});" />
+            </g>
+            <g class="splash">
+                <circle cx="0" cy="0" r="20" onclick="sendToController({arm:2,button:'splash'});" />
+            </g>
+        </g>
+        <g id="arm-3" class="arm" transform="translate(150, 250)">
+            <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
+            <g class="arrow-left">
+                <polygon points="-30,10 -30,-10 -80,-10 -80,-20 -100,0 -80,20 -80,10" onclick="sendToController({arm:3,button:'left'});" />
+            </g>
+            <g class="arrow-right">
+                <polygon points="30,10 30,-10 80,-10 80,-20 100,0 80,20 80,10" onclick="sendToController({arm:3,button:'right'});" />
+            </g>
+            <g class="splash">
+                <circle cx="0" cy="0" r="20" onclick="sendToController({arm:3,button:'splash'});" />
+            </g>
+        </g>
+        <g id="arm-4" class="arm" transform="translate(150, 350)">
+            <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
+            <g class="arrow-left">
+                <polygon points="-30,10 -30,-10 -80,-10 -80,-20 -100,0 -80,20 -80,10" onclick="sendToController({arm:4,button:'left'});" />
+            </g>
+            <g class="arrow-right">
+                <polygon points="30,10 30,-10 80,-10 80,-20 100,0 80,20 80,10" onclick="sendToController({arm:4,button:'right'});" />
+            </g>
+            <g class="splash">
+                <circle cx="0" cy="0" r="20" onclick="sendToController({arm:4,button:'splash'});" />
+            </g>
+        </g>
+    </g>
 </svg>
 
 <script>
