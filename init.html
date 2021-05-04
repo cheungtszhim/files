@@ -18,23 +18,34 @@
         opacity: 1;
     }
 
-    .splash:hover, [class|="arrow"]>polygon:hover {
+    .splash:hover, [class|="arrow"]:hover {
         stroke-width: 3px;
     }
-    .splash>circle:active,[class|="arrow"]>polygon:active {
+    .splash:active,[class|="arrow"]:active {
         stroke-width: 5px;
         transition: none;
     }
-    .splash>circle,[class|="arrow"]>polygon {
+    .splash,[class|="arrow"] {
         stroke: currentColor;
         fill: currentColor;
         fill-opacity: 0.3;
         transition: stroke-width 1s;
     }
-    .splash>circle {
+    .splash {
         color: Orange;
     }
-    [class|="arrow"]>polygon {
+
+    .splash-bomb {
+        opacity: 1;
+        r: 20px;
+        transition: opacity 2s, r 2s;
+    }
+    .splash-bomb:active {
+        opacity: 0;
+        r: 50px;
+    }
+
+    [class|="arrow"] {
         color: lightskyblue;
     }
 
@@ -47,6 +58,9 @@
     <rect id="border" x="0" y="0" width="300" height="400"></rect>
     <g id="main_controller">
         <g id="arm-1" class="arm" transform="translate(150, 50)">
+            <g class="splash-bomb">
+                <circle cx="0" cy="0" r="20" />
+            </g>
             <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
             <g class="arrow-left">
                 <polygon points="-30,10 -30,-10 -80,-10 -80,-20 -100,0 -80,20 -80,10" onclick="sendToController({arm:1,button:'left'});" />
@@ -98,8 +112,6 @@
 </svg>
 
 <script>
-    
-
     function sendToController(obj) {
         drawsocket.sendRoomMessage({
             controller: {
