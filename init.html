@@ -60,9 +60,6 @@
     <rect id="border" x="0" y="0" width="300" height="400"></rect>
     <g id="main_controller">
         <g id="arm-1" class="arm" transform="translate(150, 50)">
-            <g class="splash-bomb">
-                <circle cx="0" cy="0" r="20" />
-            </g>
             <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
             <g class="arrow-left">
                 <polygon points="-30,10 -30,-10 -80,-10 -80,-20 -100,0 -80,20 -80,10" onclick="sendToController({arm:1,button:'left'});" />
@@ -72,6 +69,9 @@
             </g>
             <g class="splash">
                 <circle cx="0" cy="0" r="20" onclick="sendToController({arm:1,button:'splash'});" />
+            </g>
+            <g class="splash-bomb">
+                <circle cx="0" cy="0" r="20" />
             </g>
         </g>
         <g id="arm-2" class="arm" transform="translate(150, 150)">
