@@ -18,14 +18,14 @@
         opacity: 1;
     }
 
-    .splash:hover, [class|=arrow]:hover {
+    .splash:hover, [class|=arrow]>polygon:hover {
         stroke-width: 3px;
     }
-    .splash:active,[class|=arrow]:active {
+    .splash:active,[class|=arrow]>polygon:active {
         stroke-width: 5px;
         transition: none;
     }
-    .splash,[class|=arrow] {
+    .splash,[class|=arrow]>polygon {
         stroke: currentColor;
         fill: currentColor;
         fill-opacity: 0.3;
@@ -46,7 +46,7 @@
         transition: opacity 2s, transform 2s;
     }
 
-    [class|=arrow] {
+    [class|=arrow]>polygon {
         color: lightskyblue;
     }
 
