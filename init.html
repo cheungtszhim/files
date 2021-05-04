@@ -38,13 +38,12 @@
     .splash-bomb {
         fill: currentColor;
         stroke: none;
-        opacity: 1;
-        r: 20px;
-        transition: opacity 2s, r 2s;
-    }
-    .splash-bomb:active {
         opacity: 0;
-        r: 50px;
+    }
+    .splash-bomb.boom {
+        opacity: 0;
+        transform: scale(3);
+        transition: opacity 2s, transform 2s;
     }
 
     [class|=arrow] {
@@ -70,7 +69,7 @@
             <g class="splash">
                 <circle cx="0" cy="0" r="20" onclick="sendToController({arm:1,button:'splash'});" />
             </g>
-            <g class="splash-bomb">
+            <g id="splash-bomb-1" class="splash-bomb">
                 <circle cx="0" cy="0" r="20" />
             </g>
         </g>
@@ -123,15 +122,20 @@
         })
     }
 
+    function boom(arm) {
+        const bomb = document.getElementById('splash-bomb-'+arm);
+        bomb.setAttribute('class','splash-bomb boom');
+    }
+
     function init() {
         // remove UI bar on top
-        let ui_div = document.getElementById('default_ui');
-        let localUI_div = document.getElementById('local_ui');
+        const ui_div = document.getElementById('default_ui');
+        const localUI_div = document.getElementById('local_ui');
 
         ui_div.parentElement.removeChild(ui_div);
         localUI_div.parentElement.removeChild(localUI_div);
         
-        let log = document.getElementById('statusDiv');
+        const log = document.getElementById('statusDiv');
         log.style.visibility = "hidden";
 
         window.addEventListener("beforeunload", () => {
