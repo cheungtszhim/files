@@ -40,15 +40,14 @@
         fill: skyblue;
     }
 
+    @keyframe boom {
+        0% (transform: scale(1); opacity: 1;)
+        100% (transform: scale(3); opacity: 0;)
+    }
     .splash-bomb {
         fill: currentColor;
         stroke: none;
-        opacity: 0;
-    }
-    .splash-bomb.boom {
-        opacity: 0;
-        transform: scale(3);
-        transition: opacity 2s, transform 2s;
+        animation: boom 3s 1;
     }
 
     [class|=arrow]>polygon {
@@ -75,10 +74,7 @@
                 <circle cx="0" cy="0" r="20" onclick="sendToController({arm:1,button:'splash'});" />
             </g>
             <g id="direction-1" class="direction">
-                <polygon points="5,30 -5,30 0,50" />
-            </g>
-            <g id="splash-bomb-1" class="splash-bomb">
-                <circle cx="0" cy="0" r="20" />
+                <polygon points="5,25 -5,25 0,45" />
             </g>
         </g>
         <g id="arm-2" class="arm" transform="translate(150, 150)">
@@ -93,7 +89,7 @@
                 <circle cx="0" cy="0" r="20" onclick="sendToController({arm:2,button:'splash'});" />
             </g>
             <g id="direction-2" class="direction">
-                <polygon points="5,30 -5,30 0,50" />
+                <polygon points="5,25 -5,25 0,45" />
             </g>
         </g>
         <g id="arm-3" class="arm" transform="translate(150, 250)">
@@ -108,7 +104,7 @@
                 <circle cx="0" cy="0" r="20" onclick="sendToController({arm:3,button:'splash'});" />
             </g>
             <g id="direction-3" class="direction">
-                <polygon points="5,30 -5,30 0,50" />
+                <polygon points="5,25 -5,25 0,45" />
             </g>
         </g>
         <g id="arm-4" class="arm" transform="translate(150, 350)">
@@ -123,7 +119,7 @@
                 <circle cx="0" cy="0" r="20" onclick="sendToController({arm:4,button:'splash'});" />
             </g>
             <g id="direction-4" class="direction">
-                <polygon points="5,30 -5,30 0,50" />
+                <polygon points="5,25 -5,25 0,45" />
             </g>
         </g>
     </g>
