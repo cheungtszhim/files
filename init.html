@@ -18,24 +18,26 @@
         opacity: 1;
     }
 
-    .splash:hover, [class|="arrow"]:hover {
+    .splash:hover, [class|=arrow]:hover {
         stroke-width: 3px;
     }
-    .splash:active,[class|="arrow"]:active {
+    .splash:active,[class|=arrow]:active {
         stroke-width: 5px;
         transition: none;
     }
-    .splash,[class|="arrow"] {
+    .splash,[class|=arrow] {
         stroke: currentColor;
         fill: currentColor;
         fill-opacity: 0.3;
         transition: stroke-width 1s;
     }
-    .splash {
+    [class|=splash] {
         color: Orange;
     }
 
     .splash-bomb {
+        fill: currentColor;
+        stroke: none;
         opacity: 1;
         r: 20px;
         transition: opacity 2s, r 2s;
@@ -45,7 +47,7 @@
         r: 50px;
     }
 
-    [class|="arrow"] {
+    [class|=arrow] {
         color: lightskyblue;
     }
 
