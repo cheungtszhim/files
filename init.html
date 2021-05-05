@@ -31,28 +31,27 @@
         transition: stroke-width 1s;
     }
     [class|=splash] {
-        color: Orange;
+        color: rgb(248, 148, 18);
     }
 
-    .direction polygon {
+    .direction>polygon {
         stroke: none;
-        fill: skyblue;
+        fill: rgb(51, 51, 204);
     }
 
     @keyframes boom {
         0% {transform: scale(1); opacity: 1;}
-        100% {transform: scale(3); opacity: 0; display: none;}
+        100% {transform: scale(3); opacity: 0;}
     }
-    .splash-bomb {
+    .splash-bomb, .arrow-bomb {
         fill: currentColor;
         stroke: none;
         animation: boom 3s 1 linear forwards;
     }
 
     [class|=arrow]>polygon {
-        color: lightskyblue;
+        color: rgb(51, 51, 204);
     }
-
     .selectbox {
         opacity: 0;
     }
