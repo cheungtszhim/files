@@ -16,42 +16,50 @@
     .arm:hover {
         opacity: 1;
     }
+    
+    [class|=splash] {
+        color: orange;
+    }
+    [class|=arrow] polygon{
+        color: skyblue;
+    }
+    .direction polygon {
+        stroke: none;
+        fill: lightskyblue;
+    }
 
-    .splash:hover, [class|=arrow]>polygon:hover {
+    .splash:hover, [class|=arrow] polygon:hover {
         stroke-width: 3px;
     }
-    .splash:active,[class|=arrow]>polygon:active {
+    .splash:active,[class|=arrow] polygon:active {
         stroke-width: 5px;
         transition: none;
     }
-    .splash,[class|=arrow]>polygon {
+    .splash,[class|=arrow] polygon {
         stroke: currentColor;
         fill: currentColor;
         fill-opacity: 0.3;
         transition: stroke-width 1s;
     }
-    [class|=splash] {
-        color: rgb(248, 148, 18);
-    }
 
-    .direction>polygon {
-        stroke: none;
-        fill: rgb(51, 51, 204);
+    .splash-count {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 10px;
+        opacity: 0.8;
+        transform: rotate(-90, 0, 0);
     }
 
     @keyframes boom {
         0% {transform: scale(1); opacity: 1;}
         100% {transform: scale(3); opacity: 0;}
     }
-    .splash-bomb, .arrow-bomb {
+    [class$=bomb] {
         fill: currentColor;
         stroke: none;
         animation: boom 3s 1 linear forwards;
     }
 
-    [class|=arrow]>polygon {
-        color: rgb(51, 51, 204);
-    }
     .selectbox {
         opacity: 0;
     }
@@ -62,18 +70,11 @@
     <g id="main_controller">
         <g id="arm-1" class="arm" transform="translate(150, 50)">
             <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
-            <g class="arrow-left">
-                <polygon points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" onclick="sendToController({arm:1,button:'left'});" />
-            </g>
-            <g class="arrow-right">
-                <polygon points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" onclick="sendToController({arm:1,button:'right'});" />
-            </g>
-            <g class="splash">
-                <circle cx="0" cy="0" r="20" onclick="sendToController({arm:1,button:'splash'});" />
-            </g>
-            <g id="direction-1" class="direction">
-                <polygon points="5,25 -5,25 0,45" />
-            </g>
+            <polygon class="arrow-left" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" onclick="sendToController({arm:1,button:'left'});" />
+            <polygon class="arrow-right" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" onclick="sendToController({arm:1,button:'right'});" />
+            <circle id="splash-count-1" class="splash-count" cx="0" cy="0" r="10" stroke-dasharray="0 32" />
+            <circle class="splash" cx="0" cy="0" r="20" onclick="sendToController({arm:1,button:'splash'});" />
+            <polygon id="direction-1" class="direction" points="5,25 -5,25 0,45" />
         </g>
         <g id="arm-2" class="arm" transform="translate(150, 150)">
             <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
