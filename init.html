@@ -21,6 +21,7 @@
         color: orange;
     }
     polygon[class|=arrow]{
+        stroke-width: 2px;
         color: skyblue;
     }
     polygon.direction {
@@ -158,15 +159,23 @@
         log.parentElement.removeChild(log);
         
         window.addEventListener("beforeunload", () => {
+            console.log('beforeunload');
             if (unloaded) return;
             unloaded = true;
             sendToController({addParticipant: -1});
         });
         window.addEventListener("visibilitychange", () => {
             if (document.visibilityState == 'hidden') {
+                console.log('hidden');
                 if (unloaded) return;
                 unloaded = true;
                 sendToController({addParticipant: -1});
+            }
+            else if (document.visibilityState == 'visible') {
+                console.log('visible');
+                if (!unloaded) return;
+                unloaded = false;
+                sendToController({addParticipant: 1});
             }
         });
     }
