@@ -27,7 +27,10 @@
         stroke: none;
         fill: lightskyblue;
     }
-
+    polygon.arrow-bomb {
+        fill: skyblue;
+        stroke: none;
+    }
     .splash, polygon[class|=arrow] {
         stroke: currentColor;
         fill: currentColor;
@@ -126,6 +129,8 @@
 </svg>
 
 <script>
+    let unloaded = false;
+
     function sendToController(obj) {
         drawsocket.sendRoomMessage({
             controller: {
@@ -145,17 +150,24 @@
         const ui_div = document.getElementById('default_ui');
         const localUI_div = document.getElementById('local_ui');
         const videosUI_div = document.getElementById('videos');
-        console.log('videosUI_div', videosUI_div);
+        const log = document.getElementById('statusDiv');
 
         ui_div.parentElement.removeChild(ui_div);
         localUI_div.parentElement.removeChild(localUI_div);
         videosUI_div.parentElement.removeChild(videosUI_div);
+        log.parentElement.removeChild(log);
         
-        const log = document.getElementById('statusDiv');
-        log.style.visibility = "hidden";
-
         window.addEventListener("beforeunload", () => {
+            if (unloaded) return;
+            unloaded = true;
             sendToController({addParticipant: -1});
+        });
+        window.addEventListener("visibilitychange", () => {
+            if (document.visibilityState == 'hidden') {
+                if (unloaded) return;
+                unloaded = true;
+                sendToController({addParticipant: -1});
+            }
         });
     }
 
