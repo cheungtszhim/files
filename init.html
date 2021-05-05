@@ -28,26 +28,27 @@
         fill: lightskyblue;
     }
 
-    .splash:hover, [class|=arrow] polygon:hover {
-        stroke-width: 3px;
-    }
-    .splash:active,[class|=arrow] polygon:active {
-        stroke-width: 5px;
-        transition: none;
-    }
-    .splash,[class|=arrow] polygon {
+    .splash, polygon[class|=arrow] {
         stroke: currentColor;
         fill: currentColor;
         fill-opacity: 0.3;
         transition: stroke-width 1s;
     }
+    .splash:hover, polygon[class|=arrow]:hover {
+        stroke-width: 3px;
+    }
+    .splash:active, polygon[class|=arrow]:active {
+        stroke-width: 5px;
+        transition: none;
+    }
 
     .splash-count {
         fill: none;
         stroke: currentColor;
-        stroke-width: 10px;
-        opacity: 0.8;
+        stroke-width: 20px;
+        opacity: 0.5;
         transform: rotate(-90, 0, 0);
+        transition: transform 0.5s;
     }
 
     @keyframes boom {
