@@ -23,7 +23,7 @@
     polygon[class|=right-count], polygon[class|=left-count] {
         fill: skyblue;
         stroke: none;
-        opacity: 0.3;
+        opacity: 0.7;
         transition: clip-path 0.5s;
     }
     polygon[class|=arrow-bomb] {
@@ -81,9 +81,9 @@
     <g id="main_controller">
         <g id="arm-1" class="arm" transform="translate(150, 50)">
             <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
-            <polygon class="left-count-1" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" clip-path="0% 0% 0% 50%" />
+            <polygon class="left-count-1" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" clip-path="inset(0% 0% 0% 50%)" />
             <polygon class="arrow-left" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" onclick="sendToController({arm:1,button:'left'});" />
-            <polygon class="right-count-1" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" clip-path="0% 50%" />
+            <polygon class="right-count-1" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" clip-path="inset(0% 50%)" />
             <polygon class="arrow-right" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" onclick="sendToController({arm:1,button:'right'});" />
             <circle id="splash-count-1" class="splash-count" cx="0" cy="0" r="10" stroke-dasharray="0 32" />
             <circle class="splash" cx="0" cy="0" r="20" onclick="sendToController({arm:1,button:'splash'});" />
