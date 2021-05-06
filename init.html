@@ -148,11 +148,13 @@
         // remove UI bar on top
         const ui_div = document.getElementById('default_ui');
         const localUI_div = document.getElementById('local_ui');
+        const device_UI_div = document.getElementById('device_selection');
         const videosUI_div = document.getElementById('videos');
         const log = document.getElementById('statusDiv');
 
         ui_div.parentElement.removeChild(ui_div);
         localUI_div.parentElement.removeChild(localUI_div);
+        device_UI_div.parentElement.removeChild(device_UI_div);
         videosUI_div.parentElement.removeChild(videosUI_div);
         log.parentElement.removeChild(log);
         
