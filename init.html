@@ -124,6 +124,7 @@
 
 <script>
     let unloaded = false;
+    let loaded = false;
 
     function sendToController(obj) {
         drawsocket.sendRoomMessage({
@@ -170,13 +171,15 @@
             }
             else if (document.visibilityState == 'visible') {
                 console.log('visible');
-                if (!unloaded) return;
-                unloaded = false;
+                if (!loaded) return;
+                loaded = true;
                 sendToController({addParticipant: 1});
             }
         });
     }
 
-    sendToController({addParticipant: 1});
+    if (!loaded) {
+        sendToController({addParticipant: 1});
+    }
     init();
 </script>
