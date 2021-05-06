@@ -20,6 +20,12 @@
     [class|=splash] {
         color: orange;
     }
+    polygon[class|=arrow-count] {
+        fill: skyblue;
+        stroke: none;
+        opacity: 0.3;
+        transition: clip-path 0.5s;
+    }
     polygon[class|=arrow-bomb] {
         fill: skyblue;
         stroke: none;
@@ -31,12 +37,6 @@
     polygon.direction {
         stroke: none;
         fill: lightskyblue;
-    }
-    polygon[class|=arrow-count] {
-        fill: skyblue;
-        stroke: none;
-        opacity: 0.3;
-        transition: clip-path 0.5s;
     }
     .splash, polygon[class|=arrow] {
         stroke: currentColor;
