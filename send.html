@@ -17,12 +17,7 @@
     main_div.parentElement.removeChild(main_div);
 
     // set up tunnel
-    window.max.bindInlet('send', (destination, string) => {
-        let obj = {};
-        obj[destination] = {
-            key: 'maxOutput',
-            val: string
-        };
-        drawsocket.sendRoomMessage(obj);
+    window.max.bindInlet('send', (string) => {
+        window.max.outlet('test');
     })
 </script>
