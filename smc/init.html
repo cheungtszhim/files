@@ -5,7 +5,7 @@
 
     #border {
         fill: none;
-        stroke: black;
+        stroke: none;
     }
 
     .arm {
@@ -81,40 +81,40 @@
     <g id="main_controller">
         <g id="arm-1" class="arm" transform="translate (100, 100) rotate(-45)">
             <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
-            <polygon class="left-count" id="left-count-1" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" clip-path="inset(0% 0% 0% 100%)" />
-            <polygon class="arrow-left" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" onclick="sendToController({arm:1,button:'left'});" />
-            <polygon class="right-count" id="right-count-1" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" clip-path="inset(0% 100% 0% 0%)" />
-            <polygon class="arrow-right" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" onclick="sendToController({arm:1,button:'right'});" />
+            <polygon class="left-count" id="left-count-1" points="-40,10 -40,-10 -90,-10 -90,-20 -110,0 -90,20 -90,10" clip-path="inset(0% 0% 0% 100%)" />
+            <polygon class="arrow-left" points="-40,10 -40,-10 -90,-10 -90,-20 -110,0 -90,20 -90,10" onclick="sendToController({arm:1,button:'left'});" />
+            <polygon class="right-count" id="right-count-1" points="40,10 40,-10 90,-10 90,-20 110,0 90,20 90,10" clip-path="inset(0% 100% 0% 0%)" />
+            <polygon class="arrow-right" points="40,10 40,-10 90,-10 90,-20 110,0 90,20 90,10" onclick="sendToController({arm:1,button:'right'});" />
             <circle id="splash-count-1" class="splash-count" cx="0" cy="0" r="10" stroke-dasharray="0 64" />
             <circle class="splash" cx="0" cy="0" r="20" onclick="sendToController({arm:1,button:'splash'});" />
             <polygon id="direction-1" class="direction" points="5,25 -5,25 0,45" />
         </g>
         <g id="arm-2" class="arm" transform="translate(300, 100) rotate(45)">
             <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
-            <polygon class="left-count" id="left-count-2" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" clip-path="inset(0% 0% 0% 100%)" />
-            <polygon class="arrow-left" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" onclick="sendToController({arm:2,button:'left'});" />
-            <polygon class="right-count" id="right-count-2" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" clip-path="inset(0% 100% 0% 0%)" />
-            <polygon class="arrow-right" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" onclick="sendToController({arm:2,button:'right'});" />
+            <polygon class="left-count" id="left-count-2" points="-40,10 -40,-10 -90,-10 -90,-20 -110,0 -90,20 -90,10" clip-path="inset(0% 0% 0% 100%)" />
+            <polygon class="arrow-left" points="-40,10 -40,-10 -90,-10 -90,-20 -110,0 -90,20 -90,10" onclick="sendToController({arm:2,button:'left'});" />
+            <polygon class="right-count" id="right-count-2" points="40,10 40,-10 90,-10 90,-20 110,0 90,20 90,10" clip-path="inset(0% 100% 0% 0%)" />
+            <polygon class="arrow-right" points="40,10 40,-10 90,-10 90,-20 110,0 90,20 90,10" onclick="sendToController({arm:2,button:'right'});" />
             <circle id="splash-count-2" class="splash-count" cx="0" cy="0" r="10" stroke-dasharray="0 64" />
             <circle class="splash" cx="0" cy="0" r="20" onclick="sendToController({arm:2,button:'splash'});" />
             <polygon id="direction-2" class="direction" points="5,25 -5,25 0,45" />
         </g>
         <g id="arm-3" class="arm" transform="translate(300, 300) rotate(135)">
             <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
-            <polygon class="left-count" id="left-count-3" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" clip-path="inset(0% 0% 0% 100%)" />
-            <polygon class="arrow-left" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" onclick="sendToController({arm:3,button:'left'});" />
-            <polygon class="right-count" id="right-count-3" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" clip-path="inset(0% 100% 0% 0%)" />
-            <polygon class="arrow-right" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" onclick="sendToController({arm:3,button:'right'});" />
+            <polygon class="left-count" id="left-count-3" points="-40,10 -40,-10 -90,-10 -90,-20 -110,0 -90,20 -90,10" clip-path="inset(0% 0% 0% 100%)" />
+            <polygon class="arrow-left" points="-40,10 -40,-10 -90,-10 -90,-20 -110,0 -90,20 -90,10" onclick="sendToController({arm:3,button:'left'});" />
+            <polygon class="right-count" id="right-count-3" points="40,10 40,-10 90,-10 90,-20 110,0 90,20 90,10" clip-path="inset(0% 100% 0% 0%)" />
+            <polygon class="arrow-right" points="40,10 40,-10 90,-10 90,-20 110,0 90,20 90,10" onclick="sendToController({arm:3,button:'right'});" />
             <circle id="splash-count-3" class="splash-count" cx="0" cy="0" r="10" stroke-dasharray="0 64" />
             <circle class="splash" cx="0" cy="0" r="20" onclick="sendToController({arm:3,button:'splash'});" />
             <polygon id="direction-3" class="direction" points="5,25 -5,25 0,45" />
         </g>
         <g id="arm-4" class="arm" transform="translate(100, 300) rotate(225)">
             <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
-            <polygon class="left-count" id="left-count-4" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" clip-path="inset(0% 0% 0% 100%)" />
-            <polygon class="arrow-left" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" onclick="sendToController({arm:4,button:'left'});" />
-            <polygon class="right-count" id="right-count-4" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" clip-path="inset(0% 100% 0% 0%)" />
-            <polygon class="arrow-right" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" onclick="sendToController({arm:4,button:'right'});" />
+            <polygon class="left-count" id="left-count-4" points="-40,10 -40,-10 -90,-10 -90,-20 -110,0 -90,20 -90,10" clip-path="inset(0% 0% 0% 100%)" />
+            <polygon class="arrow-left" points="-40,10 -40,-10 -90,-10 -90,-20 -110,0 -90,20 -90,10" onclick="sendToController({arm:4,button:'left'});" />
+            <polygon class="right-count" id="right-count-4" points="40,10 40,-10 90,-10 90,-20 110,0 90,20 90,10" clip-path="inset(0% 100% 0% 0%)" />
+            <polygon class="arrow-right" points="40,10 40,-10 90,-10 90,-20 110,0 90,20 90,10" onclick="sendToController({arm:4,button:'right'});" />
             <circle id="splash-count-4" class="splash-count" cx="0" cy="0" r="10" stroke-dasharray="0 64" />
             <circle class="splash" cx="0" cy="0" r="20" onclick="sendToController({arm:4,button:'splash'});" />
             <polygon id="direction-4" class="direction" points="5,25 -5,25 0,45" />
