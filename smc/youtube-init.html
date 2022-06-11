@@ -1,0 +1,262 @@
+<style type="text/css">
+    #drawsocket {
+        top: 0px;
+    }
+
+    #forms {
+        float: unset;
+        position: unset;
+    }
+
+    #border {
+        fill: none;
+        stroke: none;
+    }
+
+    .arm {
+        stroke-width: 2px !important;
+        opacity: 0.5;
+        transition: opacity 1s;
+    }
+    .arm:hover {
+        opacity: 1;
+    }
+    
+    [class|=splash] {
+        color: orange;
+    }
+    polygon[class|=right-count], polygon[class|=left-count] {
+        fill: skyblue;
+        stroke: none;
+        opacity: 0.7;
+        transition: clip-path 0.5s;
+    }
+    polygon[class|=left-bomb], polygon[class|=right-bomb] {
+        fill: skyblue;
+        stroke: none;
+    }
+    polygon[class|=arrow]{
+        stroke-width: 2px;
+        color: skyblue;
+    }
+    polygon.direction {
+        stroke: none;
+        fill: lightskyblue;
+    }
+    .splash, polygon[class|=arrow] {
+        stroke: currentColor;
+        fill: currentColor;
+        fill-opacity: 0.3;
+        transition: stroke-width 1s;
+    }
+    .splash:hover, polygon[class|=arrow]:hover {
+        stroke-width: 3px;
+    }
+    .splash:active, polygon[class|=arrow]:active {
+        stroke-width: 5px;
+        transition: none;
+    }
+
+    .splash-count {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 20px;
+        opacity: 0.3;
+        transform: rotate(-90deg);
+        transition: stroke-dasharray 0.5s;
+    }
+
+    @keyframes boom {
+        0% {transform: scale(1); opacity: 1;}
+        100% {transform: scale(3); opacity: 0;}
+    }
+    [class$=bomb] {
+        fill: currentColor;
+        stroke: none;
+        animation: boom 3s 1 forwards;
+    }
+    div {
+        position: unset;
+    }
+    .selectbox {
+        opacity: 0;
+    }
+
+    #svg-main {
+        display: table-cell;
+    }
+
+    #youtube-embed {
+        display: table-cell;
+    }
+
+    #main-block {
+        margin: auto;
+        margin-top: 30px;
+        background-color: #f0fcff;
+        width: 1012px;
+        border-radius: 10px;
+        border: 3px solid orange;
+        padding: 30px;
+        fill: black;
+        font-family: Montserrat, 'Segoe UI', Tahoma, Verdana, sans-serif;
+    }
+
+    #title-text {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #subtitle-text {
+        text-align: center;
+        margin: 10px;
+        margin-bottom: 20px;
+    }
+
+    #middle-block {
+        display: table-row;
+        width: 1012px;
+    }
+
+    #description-text {
+        padding: 20px;
+        text-align: justify;
+    }
+
+</style>
+
+<div id="main-block">
+    <div id="title-text">
+        People are the Knife, I am the Meat
+    </div>
+    <div id="subtitle-text">
+        performed as part of SMC-2022 (Sound and Music Computing)<br>
+        Le FIL, Saint-Étienne, France<br>
+        11.06.2022 20:00 CEST
+    </div>
+    <div id="middle-block">
+        <div id="youtube-embed" width="712" height="400">
+            <iframe class="youtube S01" width="712" height="400" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" src="https://www.youtube.com/embed/N2BWLRE5RNk?autoplay=1"></iframe>
+        </div>
+        <div id="svg-main" width="300" height="400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="400" id="svg-main">
+                <rect id="border" x="0" y="0" width="300" height="400"></rect>
+                <g id="main_controller">
+                    <g id="arm-1" class="arm" transform="translate(150, 50)">
+                        <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
+                        <polygon class="left-count" id="left-count-1" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" clip-path="inset(0% 0% 0% 100%)" />
+                        <polygon class="arrow-left" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" onclick="sendToController({arm:1,button:'left'});" />
+                        <polygon class="right-count" id="right-count-1" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" clip-path="inset(0% 100% 0% 0%)" />
+                        <polygon class="arrow-right" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" onclick="sendToController({arm:1,button:'right'});" />
+                        <circle id="splash-count-1" class="splash-count" cx="0" cy="0" r="10" stroke-dasharray="0 64" />
+                        <circle class="splash" cx="0" cy="0" r="20" onclick="sendToController({arm:1,button:'splash'});" />
+                        <polygon id="direction-1" class="direction" points="5,25 -5,25 0,45" />
+                    </g>
+                    <g id="arm-2" class="arm" transform="translate(150, 150)">
+                        <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
+                        <polygon class="left-count" id="left-count-2" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" clip-path="inset(0% 0% 0% 100%)" />
+                        <polygon class="arrow-left" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" onclick="sendToController({arm:2,button:'left'});" />
+                        <polygon class="right-count" id="right-count-2" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" clip-path="inset(0% 100% 0% 0%)" />
+                        <polygon class="arrow-right" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" onclick="sendToController({arm:2,button:'right'});" />
+                        <circle id="splash-count-2" class="splash-count" cx="0" cy="0" r="10" stroke-dasharray="0 64" />
+                        <circle class="splash" cx="0" cy="0" r="20" onclick="sendToController({arm:2,button:'splash'});" />
+                        <polygon id="direction-2" class="direction" points="5,25 -5,25 0,45" />
+                    </g>
+                    <g id="arm-3" class="arm" transform="translate(150, 250)">
+                        <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
+                        <polygon class="left-count" id="left-count-3" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" clip-path="inset(0% 0% 0% 100%)" />
+                        <polygon class="arrow-left" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" onclick="sendToController({arm:3,button:'left'});" />
+                        <polygon class="right-count" id="right-count-3" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" clip-path="inset(0% 100% 0% 0%)" />
+                        <polygon class="arrow-right" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" onclick="sendToController({arm:3,button:'right'});" />
+                        <circle id="splash-count-3" class="splash-count" cx="0" cy="0" r="10" stroke-dasharray="0 64" />
+                        <circle class="splash" cx="0" cy="0" r="20" onclick="sendToController({arm:3,button:'splash'});" />
+                        <polygon id="direction-3" class="direction" points="5,25 -5,25 0,45" />
+                    </g>
+                    <g id="arm-4" class="arm" transform="translate(150, 350)">
+                        <rect class="selectbox" x="-150" y="-50" width="300" height="100" />
+                        <polygon class="left-count" id="left-count-4" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" clip-path="inset(0% 0% 0% 100%)" />
+                        <polygon class="arrow-left" points="-50,10 -50,-10 -100,-10 -100,-20 -120,0 -100,20 -100,10" onclick="sendToController({arm:4,button:'left'});" />
+                        <polygon class="right-count" id="right-count-4" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" clip-path="inset(0% 100% 0% 0%)" />
+                        <polygon class="arrow-right" points="50,10 50,-10 100,-10 100,-20 120,0 100,20 100,10" onclick="sendToController({arm:4,button:'right'});" />
+                        <circle id="splash-count-4" class="splash-count" cx="0" cy="0" r="10" stroke-dasharray="0 64" />
+                        <circle class="splash" cx="0" cy="0" r="20" onclick="sendToController({arm:4,button:'splash'});" />
+                        <polygon id="direction-4" class="direction" points="5,25 -5,25 0,45" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <div id="description-text">
+        Make sure the YouTube stream is live! (red dot beside "Live")<br><br>
+        "People are the knife and chopping board; I am the fish and meat" is an ancient Chinese phrase that describes the situation of being totally under other people’s control and totally passive. In a society where people tend to be aggressive and technology allows people to be cruel feeling less guilt, this work is a statement against the high-tech jungle society. We invite you to click on the buttons to control our robotic arms on stage and sprinkle spices on the performer.
+    </div>
+</div>
+
+
+
+<script>
+    let unloaded = false;
+    let loaded = false;
+
+    function sendToController(obj) {
+        drawsocket.sendRoomMessage({
+            controller: {
+                key: 'maxOutput',
+                val: obj
+            }
+        })
+    }
+
+    function reportPresent() {
+        sendToController({report: 1});
+    }
+
+    function boom(arm) {
+        const bomb = document.getElementById('splash-bomb-'+arm);
+        bomb.setAttribute('class','splash-bomb boom');
+    }
+
+    function init() {
+        // remove UI bar on top
+        const ui_div = document.getElementById('default_ui');
+        const localUI_div = document.getElementById('local_ui');
+        const device_UI_div = document.getElementById('device_selection');
+        const videosUI_div = document.getElementById('videos');
+        const log = document.getElementById('statusDiv');
+        const main_div = document.getElementById('main-div');
+
+        ui_div.parentElement.removeChild(ui_div);
+        localUI_div.parentElement.removeChild(localUI_div);
+        device_UI_div.parentElement.removeChild(device_UI_div);
+        videosUI_div.parentElement.removeChild(videosUI_div);
+        log.parentElement.removeChild(log);
+        main_div.parentElement.removeChild(main_div);
+        
+        window.addEventListener("beforeunload", () => {
+            console.log('beforeunload');
+            if (unloaded) return;
+            unloaded = true;
+            sendToController({addParticipant: -1});
+        });
+        window.addEventListener("visibilitychange", () => {
+            if (document.visibilityState == 'hidden') {
+                console.log('hidden');
+                if (unloaded) return;
+                unloaded = true;
+                sendToController({addParticipant: -1});
+            }
+            else {
+                console.log('visible');
+                if (!loaded) return;
+                loaded = true;
+                sendToController({addParticipant: 1});
+            }
+        });
+    }
+
+    if (!loaded) {
+        sendToController({addParticipant: 1});
+    }
+    init();
+</script>
