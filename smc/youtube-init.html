@@ -119,6 +119,10 @@
         width: 1012px;
     }
 
+    #status-text {
+        color: darkorchid;
+    }
+
     #description-text {
         padding: 20px;
         text-align: justify;
@@ -187,6 +191,8 @@
             </svg>
         </div>
     </div>
+    <div id="status-text">
+    </div>
     <div id="description-text">
         Make sure the YouTube stream is live! (red dot beside "Live")<br><br>
         "People are the knife and chopping board; I am the fish and meat" is an ancient Chinese phrase that describes the situation of being totally under other people’s control and totally passive. In a society where people tend to be aggressive and technology allows people to be cruel feeling less guilt, this work is a statement against the high-tech jungle society. We invite you to click on the buttons to control our robotic arms on stage and sprinkle spices on the performer.
@@ -208,13 +214,14 @@
         })
     }
 
-    function reportPresent() {
-        sendToController({report: 1});
-    }
-
     function boom(arm) {
         const bomb = document.getElementById('splash-bomb-'+arm);
         bomb.setAttribute('class','splash-bomb boom');
+    }
+
+    function setStatus(message) {
+        const status = document.getElementById('status-text');
+        status.innerHTML = message;
     }
 
     function init() {
